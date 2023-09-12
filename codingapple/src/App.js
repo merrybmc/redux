@@ -1,30 +1,36 @@
 import './App.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeName, changeName2 } from './store/store';
 
 function App() {
-  // 값 읽기 selector
-  const value = useSelector((state) => state);
-
-  // 값 수정 요청 dispatch
+  let data = useSelector((state) => state);
+  console.log(data);
   const dispatch = useDispatch();
 
-  console.log(value);
+  const handleChange = () => {
+    dispatch(changeName());
+    console.log(data);
+  };
+
+  const handleChange2 = (name) => {
+    dispatch(changeName2(name));
+    console.log(data);
+  };
   return (
     <>
-      <div>{value}</div>
       <button
         onClick={() => {
-          dispatch({ type: '증가' });
+          handleChange();
         }}
       >
-        증가
+        클릭
       </button>
       <button
         onClick={() => {
-          dispatch({ type: '감소' });
+          handleChange2('호호');
         }}
       >
-        감소
+        클릭2
       </button>
     </>
   );
