@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { bgState, customSize, textColor, textSize, textState } from '../store/store';
 
-export default function TextSize() {
+export default function TextSize({ someLogic }) {
   const [size, setSize] = useRecoilState(textSize);
   const [color, setColor] = useRecoilState(textColor);
   const [state, setState] = useRecoilState(textState);
@@ -41,14 +41,8 @@ export default function TextSize() {
       <div style={{ fontSize: `${size}px`, color: `${color}` }}>크기가 변하는 텍스트</div>
       <div>
         <button onClick={() => setCustomSize(value)}>입력 크기 증가</button>
-        <button
-          onClick={() => {
-            setSize(size * 2);
-            stateChange('increase');
-          }}
-        >
-          크기 증가
-        </button>
+        <button onClick={someLogic}>크기 증가</button>
+
         <button
           onClick={() => {
             setSize(size / 2);

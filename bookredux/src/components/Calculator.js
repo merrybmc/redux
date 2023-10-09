@@ -13,6 +13,7 @@ export default function Calculator() {
 
   const result = useSelector((state) => state.calculator);
   const dispatch = useDispatch();
+  console.log(result);
 
   return (
     <>

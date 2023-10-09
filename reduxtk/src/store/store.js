@@ -15,6 +15,23 @@ const textSize = createSlice({
   },
 });
 
+const counterReducer = createSlice({
+  name: 'todoReducer',
+  initialState: [{ id: 0, todo: 'todo', isDone: false }],
+  reducers: {
+    addTodo(state, action) {
+      state.push(action.payload);
+    },
+    toggleTodo(state, action) {
+      const toggleTodo = state.find((todo) => todo.id === action.payload);
+      if (toggleTodo) toggleTodo.isDone = !toggleTodo.isDone;
+    },
+    deleteTodo(state, action) {
+      state - state.filter((todo) => todo.id !== action.payload);
+    },
+  },
+});
+
 // 리듀서
 const textColor = createSlice({
   name: 'textColor', // 리덕스 식별자 (액션 이름)

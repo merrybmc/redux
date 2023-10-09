@@ -10,6 +10,7 @@ export default function Article() {
 
   return (
     <div>
+      <button onClick={() => navigate(+1)}>이동</button>
       <button onClick={() => navigate('/shop')}>쇼핑</button>
       mainpage Article <p>상태값 : {value}</p>
     </div>
