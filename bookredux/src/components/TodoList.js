@@ -4,6 +4,11 @@ import { onAddTodo, onDeleteTodo, onToggleTodo } from '../modules/todolist';
 
 export default function TodoList() {
   const todos = useSelector((state) => state.todoList.todos);
+
+  const test = useSelector((state) => state);
+  console.log('useSelector', test);
+  console.log('type', typeof test);
+
   const dispatch = useDispatch();
 
   const [inputValue, setInputValue] = useState('');

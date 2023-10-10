@@ -7,4 +7,6 @@ const rootReducer = combineReducers({
   todoList,
 });
 
+console.log('combine', combineReducers);
+
 export default rootReducer;
